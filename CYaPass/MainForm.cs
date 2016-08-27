@@ -346,6 +346,8 @@ namespace DragPass
             Graphics g = GridPictureBox.CreateGraphics();
             DrawGridLines(g);
             DrawPosts(g);
+            Clipboard.Clear();
+            passwordTextBox.Text = String.Empty;
         }
 
         private void AddUpperCaseLetter(StringBuilder pwd)
