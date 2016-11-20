@@ -6,15 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace DragPass
+namespace CYaPass
 {
     class SiteKeys : List<SiteKey>, IPersistable
     {
         public String fileName { get; set; }
-        public SiteKeys()
-        {
-            String exeDir = Directory.GetCurrentDirectory();
-            fileName = Path.Combine(exeDir,"dragpass.json");
+
+        public SiteKeys() { }
+        public SiteKeys(String path) : base()
+        { 
+            this.fileName = Path.Combine(path,"cyapass.json");
         }
         public bool Save()
         {

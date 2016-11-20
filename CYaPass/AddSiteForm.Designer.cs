@@ -1,4 +1,4 @@
-﻿namespace DragPass
+﻿namespace CYaPass
 {
     partial class AddSiteForm
     {

@@ -18,6 +18,8 @@ RawBlameHistory     261 lines (212 sloc)  4.2 KB
 *.user
 *.userosscache
 *.sln.docstates
+*.xcf
+*.png
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
