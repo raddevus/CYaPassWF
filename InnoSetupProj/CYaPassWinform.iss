@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{9CB16870-C5EB-45BD-BD2E-0F6FFC1D0F55}
 AppName=CYaPass
-AppVersion=1.0.0
+AppVersion=1.1.0
 ;AppVerName=CYaPass 1.0.0
 AppPublisher=100 Percent Accountability, LLC
 AppPublisherURL=http://www.cyapass.com
@@ -15,10 +15,10 @@ AppSupportURL=http://www.cyapass.com
 AppUpdatesURL=http://www.cyapass.com
 DefaultDirName={pf}\CYaPass
 DisableProgramGroupPage=yes
-LicenseFile=C:\dev\WinForms\CYaPass\cyapassLicense.txt
-OutputDir=C:\dev\WinForms\CYaPass\InnoSetupProj
+LicenseFile=C:\Users\roger.deutsch\Dev\WinForm\CYaPass\cyapassLicense.txt
+OutputDir=C:\Users\roger.deutsch\Dev\WinForm\CYaPass\InnoSetupProj
 OutputBaseFilename=CYaPassInstall
-SetupIconFile=C:\dev\WinForms\CYaPass\CYaPass\CYaPass.ico
+SetupIconFile=C:\Users\roger.deutsch\Dev\WinForm\CYaPass\CYaPass\CYaPass.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -29,8 +29,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\dev\WinForms\CYaPass\CYaPass\bin\Release\CYaPass.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\WinForms\CYaPass\CYaPass\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\roger.deutsch\Dev\WinForm\CYaPass\CYaPass\bin\Release\CYaPass.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\roger.deutsch\Dev\WinForm\CYaPass\CYaPass\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
