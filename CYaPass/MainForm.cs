@@ -114,7 +114,7 @@ namespace CYaPass
             Graphics g = e.Graphics;
             DrawGridLines(g);
             DrawPosts(g);
-            DrawUserShape();
+            DrawUserShape(g);
             g = null;
         }
 
@@ -135,12 +135,20 @@ namespace CYaPass
             }
         }
 
-        private void DrawUserShape()
+        private void DrawUserShape(Graphics e = null)
         {
-            Graphics g = GridPictureBox.CreateGraphics();
+            Graphics g = null;
+            if (e == null)
+            {
+                g = GridPictureBox.CreateGraphics();
+            }
+            else
+            {
+                g = e;
+            }
             Pen p = new Pen(Color.Green);
             p.Width = 5;
-
+            
             foreach (Segment s in us.allSegments)
             {
                 g.DrawLine(p,s.Begin.X + offset, s.Begin.Y + offset, s.End.X + offset, s.End.Y + offset);
@@ -372,14 +380,6 @@ namespace CYaPass
         }
 
         private void remoteFileUrlTextBox_DragEnter(object sender, DragEventArgs e)
-        {
-            if ((e.AllowedEffect & DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
-            {
-                e.Effect = DragDropEffects.All;
-            }
-        }
-
-        private void groupBox3_DragEnter(object sender, DragEventArgs e)
         {
             if ((e.AllowedEffect & DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
             {
