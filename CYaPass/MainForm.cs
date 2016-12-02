@@ -226,6 +226,7 @@ namespace CYaPass
 
         private void DrawHighlight()
         {
+            if (us.allPoints == null || us.allPoints.Count < 1) { return; }
             Graphics g = GridPictureBox.CreateGraphics();
             Pen p = new Pen(Color.Orange);
             p.Width = 2;

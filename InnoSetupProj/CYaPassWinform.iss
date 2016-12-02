@@ -7,8 +7,8 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{9CB16870-C5EB-45BD-BD2E-0F6FFC1D0F55}
 AppName=CYaPass
-AppVersion=1.1.0
-;AppVerName=CYaPass 1.0.0
+AppVersion=1.2.0
+;AppVerName=CYaPass 1.2.0
 AppPublisher=100 Percent Accountability, LLC
 AppPublisherURL=http://www.cyapass.com
 AppSupportURL=http://www.cyapass.com
