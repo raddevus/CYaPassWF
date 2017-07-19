@@ -46,6 +46,7 @@
             this.AddSiteKeyButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.drawPatterGroupBox = new System.Windows.Forms.GroupBox();
+            this.hidePatternCheckBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -243,6 +244,7 @@
             // 
             // drawPatterGroupBox
             // 
+            this.drawPatterGroupBox.Controls.Add(this.hidePatternCheckBox);
             this.drawPatterGroupBox.Controls.Add(this.label8);
             this.drawPatterGroupBox.Controls.Add(this.ClearGridButton);
             this.drawPatterGroupBox.Controls.Add(this.GridPictureBox);
@@ -252,6 +254,17 @@
             this.drawPatterGroupBox.TabIndex = 17;
             this.drawPatterGroupBox.TabStop = false;
             this.drawPatterGroupBox.Text = "Draw Pattern";
+            // 
+            // hidePatternCheckBox
+            // 
+            this.hidePatternCheckBox.AutoSize = true;
+            this.hidePatternCheckBox.Location = new System.Drawing.Point(9, 304);
+            this.hidePatternCheckBox.Name = "hidePatternCheckBox";
+            this.hidePatternCheckBox.Size = new System.Drawing.Size(85, 17);
+            this.hidePatternCheckBox.TabIndex = 13;
+            this.hidePatternCheckBox.Text = "Hide Pattern";
+            this.hidePatternCheckBox.UseVisualStyleBackColor = true;
+            this.hidePatternCheckBox.CheckedChanged += new System.EventHandler(this.hidePatternCheckBox_CheckedChanged);
             // 
             // label8
             // 
@@ -337,6 +350,7 @@
         private System.Windows.Forms.Button deleteSiteButton;
         private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
+        private System.Windows.Forms.CheckBox hidePatternCheckBox;
     }
 }
 

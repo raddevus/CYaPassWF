@@ -114,7 +114,10 @@ namespace CYaPass
             Graphics g = e.Graphics;
             DrawGridLines(g);
             DrawPosts(g);
-            DrawUserShape(g);
+            if (!hidePatternCheckBox.Checked)
+            {
+                DrawUserShape(g);
+            }
             g = null;
         }
 
@@ -236,10 +239,13 @@ namespace CYaPass
 
         private void GridPictureBox_Click(object sender, EventArgs e)
         {
-            SelectNewPoint();
-            DrawHighlight();
-            DrawUserShape();
-            GeneratePassword();
+            if (!hidePatternCheckBox.Checked)
+            {
+                SelectNewPoint();
+                DrawHighlight();
+                DrawUserShape();
+                GeneratePassword();
+            }
         }
 
         private void GridPictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -247,14 +253,21 @@ namespace CYaPass
             MouseLoc = new Point(e.X, e.Y);
         }
 
-        private void ClearGridButton_Click(object sender, EventArgs e)
+        private void RedrawGridBackground()
         {
-            us = new UserPath();
             GridPictureBox.Invalidate();
             Graphics g = GridPictureBox.CreateGraphics();
             DrawGridLines(g);
             DrawPosts(g);
+            g = null;
+        }
+
+        private void ClearGridButton_Click(object sender, EventArgs e)
+        {
+            us = new UserPath();
+            RedrawGridBackground();
             ClearPasswordInfo();
+            hidePatternCheckBox.Checked = false;
         }
 
         private void ClearPasswordInfo(){
@@ -478,6 +491,18 @@ namespace CYaPass
         {
             AboutForm ab = new CYaPass.AboutForm();
             ab.ShowDialog();
+        }
+
+        private void hidePatternCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hidePatternCheckBox.Checked)
+            {
+                RedrawGridBackground();
+            }
+            else
+            {
+                DrawUserShape();
+            }
         }
     }
 }
