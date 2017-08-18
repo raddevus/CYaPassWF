@@ -1,7 +1,0 @@
-<?xml version='1.0'?>
-<Obfuscator>
-  <Var name="InPath" value="C:\dev\WinForms\CYaPass\CYaPass\bin\Release\" />
-  <Var name="OutPath" value="C:\dev\WinForms\CYaPass\CYaPass\bin\" />
-
-  <Module file="$(InPath)\CYaPass.exe" />
-</Obfuscator>
