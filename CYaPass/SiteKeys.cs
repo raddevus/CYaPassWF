@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace CYaPass
 {
-    class SiteKeys : List<SiteKey>, IPersistable
+    public class SiteKeys : List<SiteKey>, IPersistable
     {
         public String fileName { get; set; }
 
@@ -26,9 +26,9 @@ namespace CYaPass
             return true;
         }
 
-        public SiteKey GetItemByKey(String key)
+        public static SiteKey GetItemByKey(String key, SiteKeys allSites)
         {
-            foreach (SiteKey s in this)
+            foreach (SiteKey s in allSites)
             {
                 if (s.Key == key){
                     return s;

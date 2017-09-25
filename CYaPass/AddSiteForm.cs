@@ -13,7 +13,7 @@ namespace CYaPass
     public partial class AddSiteForm : Form
     {
 
-        public string localItem;
+        public SiteKey localItem;
         bool dontClose;
 
         public AddSiteForm()
@@ -42,7 +42,22 @@ namespace CYaPass
                 dontClose = true;
                 return;
             }
-            localItem = SiteTextBox.Text;
+            localItem = SiteKeys.GetItemByKey(SiteTextBox.Text, MainForm.allSites);
+            // set new options on found item
+            if (localItem != null)
+            {
+                localItem.HasSpecialChars = addSpecialCharsCheckBox.Checked;
+                localItem.HasUpperCase = addUppercaseCheckBox.Checked;
+                localItem.MaxLength = setMaxLengthCheckBox.Checked ? Convert.ToInt32(maxLengthNumUpDown.Value) : 0;
+            }
+            else
+            {
+                localItem = new SiteKey(SiteTextBox.Text,
+                    this.setMaxLengthCheckBox.Checked ?
+                Convert.ToInt32(this.maxLengthNumUpDown.Value) : 0,
+                this.addSpecialCharsCheckBox.Checked,
+                this.addUppercaseCheckBox.Checked);
+            }
             dontClose = false;
         }
 

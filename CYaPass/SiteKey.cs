@@ -28,5 +28,10 @@ namespace CYaPass
             this.HasSpecialChars = hasSpecicalChars;
             this.HasUpperCase = hasUpperCase;
         }
+
+        public override string ToString()
+        {
+            return Key;
+        }
     }
 }

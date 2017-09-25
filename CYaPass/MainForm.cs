@@ -22,7 +22,7 @@ namespace CYaPass
         private Point MouseLoc = new Point();
         private StringBuilder pwdBuilder;
         private StringBuilder remoteFileData;
-        private SiteKeys allSites;
+        public static SiteKeys allSites;
         private UserPath us = new UserPath();
         private int hitTestIdx;
         private String appHomeFolder;
@@ -386,13 +386,13 @@ namespace CYaPass
             {
                 return;
             }
-            currentSiteKey = new SiteKey(asf.localItem,
+            currentSiteKey = new SiteKey(asf.localItem.Key,
                 asf.setMaxLengthCheckBox.Checked ? 
                 Convert.ToInt32(asf.maxLengthNumUpDown.Value) : 0,
                 asf.addSpecialCharsCheckBox.Checked,
                 asf.addUppercaseCheckBox.Checked);
 
-            SiteListBox.Items.Add(asf.localItem);
+            SiteListBox.Items.Add(asf);
             allSites.Add(currentSiteKey);
             allSites.Save();
             SiteListBox.SelectedIndex = SiteListBox.Items.Count - 1;
@@ -416,7 +416,7 @@ namespace CYaPass
         {
             foreach (SiteKey s in allSites)
             {
-                SiteListBox.Items.Add(s.Key);
+                SiteListBox.Items.Add(s);
             }
         }
 
@@ -487,7 +487,7 @@ namespace CYaPass
             // Fixes an odd bug where the control gets focus but no item is actually selected.
             if (SiteListBox.SelectedIndex <= -1) { return; }
             // select the currentSiteKey for later use if user manipulates value
-            currentSiteKey = allSites.GetItemByKey(SiteListBox.GetItemText(SiteListBox.SelectedItem));
+            currentSiteKey = SiteKeys.GetItemByKey(SiteListBox.GetItemText(SiteListBox.SelectedItem),allSites);
             initPasswordSettings();
             if (us.allSegments.Count > 0)
             {
@@ -531,8 +531,14 @@ namespace CYaPass
         private void editSiteKeyMenuItem_Click(object sender, EventArgs e)
         {
             if (SiteListBox.SelectedItem == null) { return; }
+            SiteKey curSelSK = (SiteKey)SiteListBox.SelectedItem;
             AddSiteForm asf = new AddSiteForm(currentSiteKey);
             asf.ShowDialog();
+            SiteListBox.Items.Remove(curSelSK);
+            SiteListBox.Items.Add(currentSiteKey);
+            SiteListBox.SelectedItem = currentSiteKey;
+            allSites.Save();
+
         }
     }
 }
