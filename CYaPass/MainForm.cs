@@ -392,7 +392,7 @@ namespace CYaPass
                 asf.addSpecialCharsCheckBox.Checked,
                 asf.addUppercaseCheckBox.Checked);
 
-            SiteListBox.Items.Add(asf);
+            SiteListBox.Items.Add(currentSiteKey);
             allSites.Add(currentSiteKey);
             allSites.Save();
             SiteListBox.SelectedIndex = SiteListBox.Items.Count - 1;
@@ -497,16 +497,19 @@ namespace CYaPass
 
         private void initPasswordSettings()
         {
-            AddSpecialCharsCheckBox.Checked = currentSiteKey.HasSpecialChars;
-            addUpperCaseCheckBox.Checked = currentSiteKey.HasUpperCase;
-            if (currentSiteKey.MaxLength > 0)
+            if (currentSiteKey != null)
             {
-                SetMaxLengthCheckBox.Checked = true;
-                MaxLengthUpDown.Value = currentSiteKey.MaxLength;
-            }
-            else
-            {
-                SetMaxLengthCheckBox.Checked = false;
+                AddSpecialCharsCheckBox.Checked = currentSiteKey.HasSpecialChars;
+                addUpperCaseCheckBox.Checked = currentSiteKey.HasUpperCase;
+                if (currentSiteKey.MaxLength > 0)
+                {
+                    SetMaxLengthCheckBox.Checked = true;
+                    MaxLengthUpDown.Value = currentSiteKey.MaxLength;
+                }
+                else
+                {
+                    SetMaxLengthCheckBox.Checked = false;
+                }
             }
         }
 
