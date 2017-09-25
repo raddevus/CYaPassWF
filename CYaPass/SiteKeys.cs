@@ -25,5 +25,16 @@ namespace CYaPass
             File.AppendAllText(fileName, allSitesAsJson);
             return true;
         }
+
+        public SiteKey GetItemByKey(String key)
+        {
+            foreach (SiteKey s in this)
+            {
+                if (s.Key == key){
+                    return s;
+                }
+            }
+            return null;
+        }
     }
 }

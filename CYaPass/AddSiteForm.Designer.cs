@@ -32,12 +32,17 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.SiteTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.addUppercaseCheckBox = new System.Windows.Forms.CheckBox();
+            this.addSpecialCharsCheckBox = new System.Windows.Forms.CheckBox();
+            this.setMaxLengthCheckBox = new System.Windows.Forms.CheckBox();
+            this.maxLengthNumUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.maxLengthNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // OKButton
             // 
             this.OKButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OKButton.Location = new System.Drawing.Point(217, 55);
+            this.OKButton.Location = new System.Drawing.Point(217, 79);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 0;
@@ -48,7 +53,7 @@
             // CancelButton
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(312, 55);
+            this.CancelButton.Location = new System.Drawing.Point(312, 81);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 1;
@@ -72,12 +77,68 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Site:";
             // 
+            // addUppercaseCheckBox
+            // 
+            this.addUppercaseCheckBox.AutoSize = true;
+            this.addUppercaseCheckBox.Location = new System.Drawing.Point(16, 56);
+            this.addUppercaseCheckBox.Name = "addUppercaseCheckBox";
+            this.addUppercaseCheckBox.Size = new System.Drawing.Size(101, 17);
+            this.addUppercaseCheckBox.TabIndex = 4;
+            this.addUppercaseCheckBox.Text = "Add UpperCase";
+            this.addUppercaseCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // addSpecialCharsCheckBox
+            // 
+            this.addSpecialCharsCheckBox.AutoSize = true;
+            this.addSpecialCharsCheckBox.Location = new System.Drawing.Point(123, 56);
+            this.addSpecialCharsCheckBox.Name = "addSpecialCharsCheckBox";
+            this.addSpecialCharsCheckBox.Size = new System.Drawing.Size(113, 17);
+            this.addSpecialCharsCheckBox.TabIndex = 5;
+            this.addSpecialCharsCheckBox.Text = "Add Special Chars";
+            this.addSpecialCharsCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // setMaxLengthCheckBox
+            // 
+            this.setMaxLengthCheckBox.AutoSize = true;
+            this.setMaxLengthCheckBox.Location = new System.Drawing.Point(243, 56);
+            this.setMaxLengthCheckBox.Name = "setMaxLengthCheckBox";
+            this.setMaxLengthCheckBox.Size = new System.Drawing.Size(101, 17);
+            this.setMaxLengthCheckBox.TabIndex = 6;
+            this.setMaxLengthCheckBox.Text = "Set Max Length";
+            this.setMaxLengthCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // maxLengthNumUpDown
+            // 
+            this.maxLengthNumUpDown.Location = new System.Drawing.Point(341, 55);
+            this.maxLengthNumUpDown.Maximum = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.maxLengthNumUpDown.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.maxLengthNumUpDown.Name = "maxLengthNumUpDown";
+            this.maxLengthNumUpDown.Size = new System.Drawing.Size(46, 20);
+            this.maxLengthNumUpDown.TabIndex = 7;
+            this.maxLengthNumUpDown.Value = new decimal(new int[] {
+            32,
+            0,
+            0,
+            0});
+            // 
             // AddSiteForm
             // 
             this.AcceptButton = this.OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 99);
+            this.ClientSize = new System.Drawing.Size(399, 114);
+            this.Controls.Add(this.maxLengthNumUpDown);
+            this.Controls.Add(this.setMaxLengthCheckBox);
+            this.Controls.Add(this.addSpecialCharsCheckBox);
+            this.Controls.Add(this.addUppercaseCheckBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SiteTextBox);
             this.Controls.Add(this.CancelButton);
@@ -89,6 +150,7 @@
             this.Text = "Add New Site";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddSiteForm_FormClosing);
             this.Shown += new System.EventHandler(this.AddSiteForm_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.maxLengthNumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +162,9 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.TextBox SiteTextBox;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.CheckBox addUppercaseCheckBox;
+        public System.Windows.Forms.CheckBox addSpecialCharsCheckBox;
+        public System.Windows.Forms.CheckBox setMaxLengthCheckBox;
+        public System.Windows.Forms.NumericUpDown maxLengthNumUpDown;
     }
 }

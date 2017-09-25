@@ -27,6 +27,7 @@ namespace CYaPass
         private int hitTestIdx;
         private String appHomeFolder;
         private String appDataLocal;
+        private SiteKey currentSiteKey;
 
         public MainForm()
         {
@@ -385,9 +386,14 @@ namespace CYaPass
             {
                 return;
             }
+            currentSiteKey = new SiteKey(asf.localItem,
+                asf.setMaxLengthCheckBox.Checked ? 
+                Convert.ToInt32(asf.maxLengthNumUpDown.Value) : 0,
+                asf.addSpecialCharsCheckBox.Checked,
+                asf.addUppercaseCheckBox.Checked);
 
             SiteListBox.Items.Add(asf.localItem);
-            allSites.Add(new SiteKey(asf.localItem));
+            allSites.Add(currentSiteKey);
             allSites.Save();
             SiteListBox.SelectedIndex = SiteListBox.Items.Count - 1;
             asf.Dispose();
@@ -480,10 +486,27 @@ namespace CYaPass
         {
             // Fixes an odd bug where the control gets focus but no item is actually selected.
             if (SiteListBox.SelectedIndex <= -1) { return; }
-
+            // select the currentSiteKey for later use if user manipulates value
+            currentSiteKey = allSites.GetItemByKey(SiteListBox.GetItemText(SiteListBox.SelectedItem));
+            initPasswordSettings();
             if (us.allSegments.Count > 0)
             {
                 GeneratePassword();
+            }
+        }
+
+        private void initPasswordSettings()
+        {
+            AddSpecialCharsCheckBox.Checked = currentSiteKey.HasSpecialChars;
+            addUpperCaseCheckBox.Checked = currentSiteKey.HasUpperCase;
+            if (currentSiteKey.MaxLength > 0)
+            {
+                SetMaxLengthCheckBox.Checked = true;
+                MaxLengthUpDown.Value = currentSiteKey.MaxLength;
+            }
+            else
+            {
+                SetMaxLengthCheckBox.Checked = false;
             }
         }
 
@@ -503,6 +526,13 @@ namespace CYaPass
             {
                 DrawUserShape();
             }
+        }
+
+        private void editSiteKeyMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SiteListBox.SelectedItem == null) { return; }
+            AddSiteForm asf = new AddSiteForm(currentSiteKey);
+            asf.ShowDialog();
         }
     }
 }

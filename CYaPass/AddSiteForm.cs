@@ -21,6 +21,19 @@ namespace CYaPass
             InitializeComponent();
         }
 
+        public AddSiteForm(SiteKey sk)
+        {
+            InitializeComponent();
+            addSpecialCharsCheckBox.Checked = sk.HasSpecialChars;
+            addUppercaseCheckBox.Checked = sk.HasUpperCase;
+            if (sk.MaxLength > 0)
+            {
+                setMaxLengthCheckBox.Checked = true;
+                maxLengthNumUpDown.Value = sk.MaxLength;
+            }
+            SiteTextBox.Text = sk.Key;
+        }
+
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (SiteTextBox.Text == String.Empty)

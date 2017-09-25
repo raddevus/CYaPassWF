@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.showPasswordCheckBox = new System.Windows.Forms.CheckBox();
@@ -41,6 +42,8 @@
             this.AddSpecialCharsCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SiteListBox = new System.Windows.Forms.ListBox();
+            this.siteKeyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editSiteKeyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.deleteSiteButton = new System.Windows.Forms.Button();
             this.AddSiteKeyButton = new System.Windows.Forms.Button();
@@ -54,6 +57,7 @@
             this.OptionsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaxLengthUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.siteKeyContextMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.drawPatterGroupBox.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
@@ -129,7 +133,7 @@
             // 
             this.MaxLengthUpDown.Location = new System.Drawing.Point(125, 65);
             this.MaxLengthUpDown.Maximum = new decimal(new int[] {
-            300,
+            64,
             0,
             0,
             0});
@@ -142,7 +146,7 @@
             this.MaxLengthUpDown.Size = new System.Drawing.Size(120, 20);
             this.MaxLengthUpDown.TabIndex = 17;
             this.MaxLengthUpDown.Value = new decimal(new int[] {
-            25,
+            32,
             0,
             0,
             0});
@@ -191,12 +195,27 @@
             // 
             // SiteListBox
             // 
+            this.SiteListBox.ContextMenuStrip = this.siteKeyContextMenu;
             this.SiteListBox.FormattingEnabled = true;
             this.SiteListBox.Location = new System.Drawing.Point(14, 42);
             this.SiteListBox.Name = "SiteListBox";
             this.SiteListBox.Size = new System.Drawing.Size(233, 134);
             this.SiteListBox.TabIndex = 16;
             this.SiteListBox.SelectedIndexChanged += new System.EventHandler(this.SiteListBox_SelectedIndexChanged);
+            // 
+            // siteKeyContextMenu
+            // 
+            this.siteKeyContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editSiteKeyMenuItem});
+            this.siteKeyContextMenu.Name = "siteKeyContextMenu";
+            this.siteKeyContextMenu.Size = new System.Drawing.Size(153, 48);
+            // 
+            // editSiteKeyMenuItem
+            // 
+            this.editSiteKeyMenuItem.Name = "editSiteKeyMenuItem";
+            this.editSiteKeyMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editSiteKeyMenuItem.Text = "Edit";
+            this.editSiteKeyMenuItem.Click += new System.EventHandler(this.editSiteKeyMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -317,6 +336,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MaxLengthUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.siteKeyContextMenu.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.drawPatterGroupBox.ResumeLayout(false);
@@ -351,6 +371,8 @@
         private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
         private System.Windows.Forms.CheckBox hidePatternCheckBox;
+        private System.Windows.Forms.ContextMenuStrip siteKeyContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem editSiteKeyMenuItem;
     }
 }
 
