@@ -532,10 +532,11 @@ namespace CYaPass
         {
             if (SiteListBox.SelectedItem == null) { return; }
             SiteKey curSelSK = (SiteKey)SiteListBox.SelectedItem;
+            int currentIdx = SiteListBox.SelectedIndex;
             AddSiteForm asf = new AddSiteForm(currentSiteKey);
             asf.ShowDialog();
             SiteListBox.Items.Remove(curSelSK);
-            SiteListBox.Items.Add(currentSiteKey);
+            SiteListBox.Items.Insert(currentIdx,currentSiteKey);
             SiteListBox.SelectedItem = currentSiteKey;
             allSites.Save();
 
