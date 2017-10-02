@@ -200,6 +200,7 @@
             this.SiteListBox.Location = new System.Drawing.Point(14, 42);
             this.SiteListBox.Name = "SiteListBox";
             this.SiteListBox.Size = new System.Drawing.Size(233, 134);
+            this.SiteListBox.Sorted = true;
             this.SiteListBox.TabIndex = 16;
             this.SiteListBox.SelectedIndexChanged += new System.EventHandler(this.SiteListBox_SelectedIndexChanged);
             // 

@@ -395,7 +395,7 @@ namespace CYaPass
             SiteListBox.Items.Add(currentSiteKey);
             allSites.Add(currentSiteKey);
             allSites.Save();
-            SiteListBox.SelectedIndex = SiteListBox.Items.Count - 1;
+            SiteListBox.SelectedItem = currentSiteKey;
             asf.Dispose();
         }
 
